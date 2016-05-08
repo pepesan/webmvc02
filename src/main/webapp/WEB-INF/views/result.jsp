@@ -17,15 +17,15 @@
 <table>
     <tr>
         <td>Name</td>
-        <td><c:out value="${model.name}" /></td>
+        <td>${model.name}</td>
     </tr>
     <tr>
         <td>Age</td>
-        <td><c:out value="${model.age}" /></td>
+        <td>${model.age}</td>
     </tr>
     <tr>
         <td>ID</td>
-        <td><c:out value="${model.id}" /></td>
+        <td>${model.id}</td>
     </tr>
 </table>
 </body>
