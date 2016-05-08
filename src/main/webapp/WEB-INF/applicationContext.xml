@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        <bean id="prop" class="com.pruebas.beans.Propiedades">
+            <property name="nombre" value="cursos"></property>
+        </bean>
+        <bean id="javatunesDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+            <property name="url" value="jdbc:mysql://localhost:3306/test"></property>
+            <property name="username" value="root"></property>
+            <property name="password" value=""></property>
+        </bean>
+        <bean id="JdbcMusicItemDAO" class="com.pruebas.beans.JdbcMusicItemDAO">
+            <property name="dataSource" ref="javatunesDataSource"></property>
+        </bean>
+        <bean id="ejemploTipos" class="com.pruebas.beans.PropertyEditorBean">
+            <property name="bytes" value="Texto de prueba"></property>
+            <!--property name="file" value="/tmp/"></property-->
+            <property name="locale" value="en_GB"></property>
+            <property name="pattern" value="^(.*)$"></property>
+            <property name="strings" value="Luis,Ana,Pedro,Juan"></property>
+            <property name="properties" >
+                <value>
+                    a=b
+                    b=c
+                </value>
+            </property>
+            <property name="url" value="http://www.netmind.es"></property>
+
+        </bean>
+        <bean id="pedido" class="com.pruebas.beans.Pedido">
+            <constructor-arg value="mipedido"></constructor-arg>
+        </bean>
+        <bean id="ejemploCons" class="com.pruebas.beans.EjemploConstructor">
+            <constructor-arg ref="pedido"></constructor-arg>
+            <constructor-arg type="java.lang.String" value="más vale pájaro en mano"></constructor-arg>
+        </bean>
+        <bean id="coleccion,cols" class="com.pruebas.beans.InjectarColecion">
+            <property name="ciudades">
+                <list>
+                    <value>Madrid</value>
+                    <value>Salamanca</value>
+                    <value>Vitoria</value>
+                </list>
+            </property>
+            <property name="otrasCiudades">
+                <set>
+                    <value>Madrid</value>
+                    <value>Salamanca</value>
+                    <value>Vitoria</value>
+                    <value>Bilbao</value>
+                </set>
+            </property>
+        </bean>
+</beans>
