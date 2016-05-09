@@ -9,11 +9,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Mi Ruta con Parámetro</title>
+    <title>Mi Ruta con Redirección de Parámetro</title>
 </head>
 <body>
-<h1>${model.id}</h1>
-<a href="<c:url value="/rutaredir"/>">Ruta redirigida</a>
+<h1>ID:${model.id}</h1>
+<h1>Variable de Sesión var:${model.var}</h1>
 <a href="<c:url value="/"/>">Inicio</a>
 </body>
 </html>
