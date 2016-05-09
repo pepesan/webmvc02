@@ -1,9 +1,9 @@
 package com.pruebas.controllers;
 
+import org.springframework.integration.syslog.SyslogHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ import java.util.Map;
  */
 @Controller
 public class HelloController {
-    @RequestMapping(value="/hello.htm")
+    @RequestMapping(value="/hello")
     public ModelAndView handleRequest (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
 
@@ -26,6 +26,23 @@ public class HelloController {
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("variable","Valor");
         return new ModelAndView("hello","model",model);
+    }
+
+    @RequestMapping(value="/miruta/{id}")
+    public ModelAndView manejadorRuta(@PathVariable Integer id){
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("id",id);
+        return new ModelAndView("ruta","model",model);
+    }
+    @RequestMapping(value="/rutaparametro")
+    public ModelAndView manejadorRutaParametro(@RequestParam("id")String id)
+            throws ServletException, IOException
+    {
+        Map<String, Object> model = new HashMap<String, Object>();
+        //String id=request.getParameter("id");
+        System.out.println("id:"+id);
+        model.put("id",id);
+        return new ModelAndView("rutaparametro","model",model);
     }
 
 }

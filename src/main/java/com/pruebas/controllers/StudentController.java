@@ -18,13 +18,13 @@ import java.util.Map;
 @Controller
 public class StudentController {
 
-    @RequestMapping(value = "/student.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/student", method = RequestMethod.GET)
     public ModelAndView student() {
         return new ModelAndView("student", "command", new Student());
     }
 
-    @RequestMapping(value = "/addStudent.htm", method = RequestMethod.POST)
-    public ModelAndView addStudent(@ModelAttribute("")Student student) {
+    @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
+    public ModelAndView addStudent(@ModelAttribute("student")Student student) {
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("variable","Valor");
         model.put("name", student.getName());

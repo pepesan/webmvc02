@@ -15,6 +15,7 @@
 <h1>Página de ejemplo de HelloController</h1>
 <h2>${model}</h2>
 <h2>${model.variable}</h2>
-<a href="/student.htm">Enlace al formulario</a>
+<a href="/student">Enlace al formulario</a>
+<a href="<c:url value="/miruta/25"/>">Una ruta</a>
 </body>
 </html>

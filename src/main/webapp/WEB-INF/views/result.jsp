@@ -28,5 +28,6 @@
         <td>${model.id}</td>
     </tr>
 </table>
+<a href="<c:url value="/"/>Inicio</a>
 </body>
 </html>
