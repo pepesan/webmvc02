@@ -32,12 +32,13 @@ public class HelloController {
 
     {
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("variable","Valor");
+        model.put("nombre","Pepito");
+        model.put("profesion","Panadero");
         return new ModelAndView("hello","model",model);
     }
 
     @RequestMapping(value="/miruta/{id}")
-    public ModelAndView manejadorRuta(@PathVariable Integer id){
+    public ModelAndView manejadorRuta(@PathVariable("id") Integer id){
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("id",id);
         return new ModelAndView("ruta","model",model);
@@ -56,7 +57,8 @@ public class HelloController {
         return new ModelAndView("rutaparametro","model",model);
     }
     @RequestMapping(value="/rutaredir")
-    public ModelAndView manejadorRutaRedir(final RedirectAttributes redirectAttributes, HttpSession session)
+    public ModelAndView manejadorRutaRedir(final RedirectAttributes redirectAttributes,
+                                           HttpSession session)
 
     {
         session.setAttribute("var","foo");
